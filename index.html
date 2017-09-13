@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Bike Index Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="opening-screen">
+        <h1>Bike Index Tracker</h1>
+        <p>This website utilizes the bike index search API:</p>
+        <form id="bikeIndexForm">
+
+          <label for="manufacturer">Manufacturer: </label>
+          <input type="text" id="manufacturer" name="manufacturer">
+
+          <label for="distance">Distance: </label>
+          <input type="number" id="distance" name="distance">
+
+          <button type="submit" id="Search">Search</button>
+        </form>
+
+        <div class="output"></div>
+      </div>
+    </div>
+  </body>
+</html>
