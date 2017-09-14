@@ -12,7 +12,7 @@ $(function() {
 
       let request = new XMLHttpRequest();
 
-      let url = `https://bikeindex.org:443/api/v3/search?page=1&per_page=25&manufacturer=${thismanufacturer}&location=IP&distance=${thisdistance}&stolenness=stolen`;
+      let url = `https://bikeindex.org:/api/v3/search?page=1&per_page=25&manufacturer=${thismanufacturer}&location=IP&distance=${thisdistance}&stolenness=stolen`;
 
       request.onload = function() {
         if (this.status === 200) {
@@ -28,10 +28,13 @@ $(function() {
 
     promise.then(function(response) {
         //let body = JSON.parse(response);
-        let bikeArry = JSON.parse(response.bikes);
+        let bikeResponse = JSON.parse(response);
+        let bikeArry = bikeResponse.bikes;
         console.log(bikeArry);
         bikeArry.forEach(function(bike) {
-          $('output').append(`<p>${bike}</p>`);
+          $('.output').append(`<ul><li>${bike.id}</li>`);
+          $('.output').append(`<li>${bike.title}</li>`);
+          $('.output').append(`<li>${bike.manufacturer_name}</li></ul>`);
         });
       }, function(error) {
         $('.showErrors').text(`There was an error: ${error.message}`);
